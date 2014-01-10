@@ -32,7 +32,8 @@ Edit each file and add the following into the <Virualhost> directive.
 
 I do it after **ServerAdmin**
 
-```# do not allow .git version control files to be issued
+```
+# do not allow .git version control files to be issued
 <Directorymatch "^/.*/\.git+/">
   Order deny,allow
   Deny from all
@@ -40,7 +41,8 @@ I do it after **ServerAdmin**
 <Files ~ "^\.git">
     Order allow,deny
     Deny from all 
-</Files>```
+</Files>
+```
 
 Next, make a backup of /usr/local/apache/conf/http.conf just in case anything goes wrong so you can immediately restore it. 
 
@@ -52,6 +54,24 @@ service http restart
 ```
 
 Immediately test access to a .git directory on a ssl and non ssl site.  Any problems, restore /usr/local/apache/conf/httpd.conf from your backup and restart httpd. 
+
+
+### From the EasyApache Documentation:
+
+```
+Custom templates that will apply to all virtual hosts when rebuilding an existing Apache configuration
+To create custom template files that affect all virtual hosts:
+Create a copy of one or more of the following files:
+Apache 1 without SSL — /var/cpanel/templates/apache1/vhost.default
+Apache 2 without SSL — /var/cpanel/templates/apache2/vhost.default
+Apache 1 with SSL — /var/cpanel/templates/apache1/ssl_vhost.default
+Apache 2 with SSL — /var/cpanel/templates/apache2/ssl_vhost.default
+Rename the copied file to one of the following:
+vhost.local — use this if you copied vhost.default.
+ssl_vhost.local — use this if you copied ssl_vhost.default.
+Edit the *.local files to make the changes you would like to your virtual host configuration.
+PICK Important: This method affects all of your virtual hosts as the .local file(s) will be used in place of the .default file(s).
+```
 
 
 
