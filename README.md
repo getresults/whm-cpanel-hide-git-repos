@@ -1,15 +1,17 @@
-whm-cpanel-hide-git-repos
-=========================
+Deny web access to .git directories on WHM/cPanel
+=================================================
 
 I use git for deployment to staging and production WHM/cPanel servers. 
 
 I've recently discovered that the .git folder inside of the web root directory was web accessible, thereby exposing my wordpress installs, database username & passwords etc.:( 
 
-The solution? Reconfigure Apache to deny access to any directories or files starting with .git. 
+### The solution
+
+Reconfigure Apache to deny access to any directories or files starting with .git. 
 
 This can be done on a site by site basis by creating a .htaccess file that denies access to the .git directory.
 
-However, I don't like that as it's too easy to forget. 
+However, I don't like that as it's too easy to forget when creating / cloning a repo.
 
 I'd much rather do it on a global level by modifying the httpd.conf
 
@@ -23,10 +25,12 @@ The specific documentation we want is how to modify the VirtualHost directives f
 
 [Changes Contained Within A Virutal Host Directive](http://docs.cpanel.net/twiki/bin/view/EasyApache3/InsideVHost)
 
-We need to modify two files. 
+We need to copy and modify two template files: 
 
-* Copy /var/cpanel/templates/apache2/vhost.default to vhost.local 
-* Copy /var/cpanel/templates/apache2/ssl_vhost.default to ssl_vhost.local 
+```
+cp /var/cpanel/templates/apache2/vhost.default to vhost.local 
+cp /var/cpanel/templates/apache2/ssl_vhost.default to ssl_vhost.local 
+```
 
 Edit each file and add the following into the <Virualhost> directive. 
 
@@ -53,7 +57,9 @@ Then run:
 service http restart
 ```
 
-Immediately test access to a .git directory on a ssl and non ssl site.  Any problems, restore /usr/local/apache/conf/httpd.conf from your backup and restart httpd. 
+Test access to a .git directory on a ssl and non ssl site.  
+
+If you have any problems, restore /usr/local/apache/conf/httpd.conf from your backup and restart httpd, then re-edit the vhost.local and ssl_vhost.local templates you created. 
 
 
 ### From the EasyApache Documentation:
