@@ -27,11 +27,11 @@ The specific documentation we want is how to modify the VirtualHost directives f
 
 [Changes Contained Within A Virutal Host Directive](http://docs.cpanel.net/twiki/bin/view/EasyApache/EasyApacheChangesWithinVirtualHost)
 
-We need to copy and modify two template files: 
+We need to make a copy of the default template files renaming them with the .local extension: 
 
 ```
-cp /var/cpanel/templates/apache2/vhost.default to vhost.local 
-cp /var/cpanel/templates/apache2/ssl_vhost.default to ssl_vhost.local 
+cp /var/cpanel/templates/apache2/vhost.default /var/cpanel/templates/apache2/vhost.local 
+cp /var/cpanel/templates/apache2/ssl_vhost.default /var/cpanel/tempaltes/apache2/ssl_vhost.local 
 ```
 
 Edit each file and add the following into the <Virualhost> directive. 
