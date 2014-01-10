@@ -1,5 +1,8 @@
 ## Deny web access to .git directories on WHM/cPanel
 
+
+### The problem
+
 I use git for deployment to staging and production WHM/cPanel servers. 
 
 I've recently discovered that the .git folder inside of the web root directory was web accessible, thereby exposing my wordpress installs, database username & passwords etc.:( 
