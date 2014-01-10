@@ -1,5 +1,4 @@
-Deny web access to .git directories on WHM/cPanel
-=================================================
+## Deny web access to .git directories on WHM/cPanel
 
 I use git for deployment to staging and production WHM/cPanel servers. 
 
@@ -15,7 +14,7 @@ However, I don't like that as it's too easy to forget when creating / cloning a 
 
 I'd much rather do it on a global level by modifying the httpd.conf
 
-## Modifying WHM / cPanel Apache httpd.conf
+### Modifying WHM / cPanel Apache httpd.conf
 
 WHM doesn't have a single httpd.conf that we can modify.   Instead it builds the main apache.conf from a bunch of templates documented here: 
 
