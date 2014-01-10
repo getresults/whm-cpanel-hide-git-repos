@@ -31,7 +31,7 @@ We need to make a copy of the default template files renaming them with the .loc
 
 ```
 cp /var/cpanel/templates/apache2/vhost.default /var/cpanel/templates/apache2/vhost.local 
-cp /var/cpanel/templates/apache2/ssl_vhost.default /var/cpanel/tempaltes/apache2/ssl_vhost.local 
+cp /var/cpanel/templates/apache2/ssl_vhost.default /var/cpanel/templates/apache2/ssl_vhost.local 
 ```
 
 Edit each file and add the following into the <Virualhost> directive. 
