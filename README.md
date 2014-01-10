@@ -25,7 +25,7 @@ WHM doesn't have a single httpd.conf that we can modify.   Instead it builds the
 
 The specific documentation we want is how to modify the VirtualHost directives for each website. 
 
-[Changes Contained Within A Virutal Host Directive](http://docs.cpanel.net/twiki/bin/view/EasyApache3/InsideVHost)
+[Changes Contained Within A Virutal Host Directive](http://docs.cpanel.net/twiki/bin/view/EasyApache/EasyApacheChangesWithinVirtualHost)
 
 We need to copy and modify two template files: 
 
